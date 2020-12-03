@@ -1,7 +1,7 @@
 import sys
 import matplotlib.pyplot as plt
 
-# from time import sleep
+from time import sleep
 
 words = "You wake up in a forest and you see a village in the distance and you need to get there."
 for char in words:
@@ -29,6 +29,41 @@ the_chiefx = 5
 the_chiefy = 6
 blacksmithtimes = 0
 villagetimes = 0
+chieftimes = 0
+
+
+def the_adventure():
+    print("The Chief: Hello traveler, for the past few years our village has been sorrounded by formidable monsters,"
+          " which prevent access in and out of the village. They have let us live in peace and in return we don't try"
+          " and disrupt their business. It has stopped the village from expanding and in a few years there will be no"
+          " village. If you defeat their boss at the top of the mountain then you will be in control of the monsters"
+          " and free our village. This challenge is not for the weak  ")
+
+
+def the_chief():
+    global y2
+    global chieftimes
+    chieftimes = chieftimes + 1
+    if chieftimes == 1:
+        print("Hello, traveler welcome to my village where you can buy equipment for your adventures there is a "
+              "blacksmith to buy weapons and an armorsmith to buy armor. You can buy from them using coins, "
+              "but since you don't seem to have any I will give you 400 coins to start with. You can come back "
+              "to me when you are ready to start your adventure. Have fun shopping.")
+        global bal
+        bal = 400
+        y2 = y2 - 1
+        the_village()
+    else:
+        print("Welcome back traveler are you ready to start your adventure")
+        start = input("Yes or No: ")
+        if start == "Yes":
+            the_adventure()
+        if start == "yes":
+            the_adventure()
+        else:
+            print("Ok you can keep shopping.")
+            y2 = y2-1
+            the_village()
 
 
 def dev_mode():
@@ -47,6 +82,10 @@ def dev_mode():
 
 
 def the_blacksmith():
+    global x1
+    global y2
+    if x1 != 3 and y2 != 6:
+        the_village()
     global blacksmithtimes
     blacksmithtimes = blacksmithtimes+1
     if blacksmithtimes == 1:
@@ -64,8 +103,6 @@ def the_blacksmith():
     global slot7
     global slot8
     global slot9
-    global x1
-    global y2
     global Villagex
     global Villagey
     global bal
@@ -948,27 +985,79 @@ def the_blacksmith():
             the_blacksmith()
     if main == "Blacksmith":
         if blacksmithtimes == 1:
-            print("Blacksmith: Hello traveler welcome to shop if you type shop you will see a list of what is available"
-                  " to you and purchase them with your coins. If you'd like to leave move any direction.")
-            the_blacksmith()
-        else:
-            print("Blacksmith: Welcome back to my shop traveler remember you can type shop to see or buy weapons and"
-                  "if you'd like to leave you can just move any direction.")
-            meaning = input("What else would you like to learn about?(stats, cost, weapon name): ")
+            firsttime = "Blacksmith: Hello traveler welcome to shop if you type shop you will see a list of what is " \
+                        "available to you and purchase them with your coins. If you'd like to leave move any " \
+                        "direction."
+            for char2 in firsttime:
+                sleep(0.05)
+                sys.stdout.write(char2)
+            meaning = input("\nWhat else would you like to learn about?(stats, cost, weapon name): ")
             if meaning == "stats":
                 print("Blacksmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
                       "the damage the more health it takes from your enemy, the higher the turns the more turns it "
                       "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
             if meaning == "cost":
                 print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
+            if meaning == "weapon name":
+                print("The name of a weapon determines what kind of weapon it is and how high its stats are so "
+                      "basically the cooler the name the better the weapon.")
+            the_blacksmith()
+        else:
+            secondtime = "Blacksmith: Hello traveler welcome back to the blacksmith shop and remember if you type " \
+                         "shop you will see a list of what is available to you and purchase them with your coins. " \
+                         "If you'd like to leave move any direction."
+            for char1 in secondtime:
+                sleep(0.05)
+                sys.stdout.write(char1)
+            meaning = input("\nWhat else would you like to learn about?(stats, cost, weapon name): ")
+            if meaning == "stats":
+                print("Blacksmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "cost":
+                print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
+            if meaning == "weapon name":
+                print("The name of a weapon determines what kind of weapon it is and how high its stats are so "
+                      "basically the cooler the name the better the weapon.")
             the_blacksmith()
     if main == "blacksmith":
         if blacksmithtimes == 1:
-            print("Blacksmith: Hello traveler welcome to shop if you type shop you will see a list of what is available"
-                  " to you and purchase them with your coins. If you'd like to leave move any direction.")
+            firsttime = "Blacksmith: Hello traveler welcome to shop if you type shop you will see a list of what is " \
+                        "available to you and purchase them with your coins. If you'd like to leave move any " \
+                        "direction."
+            for char2 in firsttime:
+                sleep(0.05)
+                sys.stdout.write(char2)
+            meaning = input("\nWhat else would you like to learn about?(stats, cost, weapon name): ")
+            if meaning == "stats":
+                print("Blacksmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "cost":
+                print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
+            if meaning == "weapon name":
+                print("The name of a weapon determines what kind of weapon it is and how high its stats are so "
+                      "basically the cooler the name the better the weapon.")
+            the_blacksmith()
         else:
-            print("Blacksmith: Welcome back to my shop traveler remember you can type shop to see or buy weapons and"
-                  "if you'd like to leave you can just move any direction.")
+            secondtime = "Blacksmith: Hello traveler welcome back to the blacksmith shop and remember if you type " \
+                         "shop you will see a list of what is available to you and purchase them with your coins. " \
+                         "If you'd like to leave move any direction."
+            for char1 in secondtime:
+                sleep(0.05)
+                sys.stdout.write(char1)
+            meaning = input("\nWhat else would you like to learn about?(stats, cost, weapon name): ")
+            if meaning == "stats":
+                print("Blacksmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "cost":
+                print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
+            if meaning == "weapon name":
+                print("The name of a weapon determines what kind of weapon it is and how high its stats are so "
+                      "basically the cooler the name the better the weapon.")
+            the_blacksmith()
+
     else:
         print("Didn't work try again")
         the_blacksmith()
@@ -979,6 +1068,8 @@ def the_village():
     global y2
     if x1 == 3 and y2 == 6:
         the_blacksmith()
+    if x1 == 5 and y2 == 6:
+        the_chief()
     global villagetimes
     villagetimes = villagetimes + 1
     if villagetimes == 1:
