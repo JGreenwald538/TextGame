@@ -960,7 +960,7 @@ def the_blacksmith():
                       "the damage the more health it takes from your enemy, the higher the turns the more turns it "
                       "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
             if meaning == "cost":
-                print("The cost of a weapon")
+                print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
             the_blacksmith()
     if main == "blacksmith":
         if blacksmithtimes == 1:
