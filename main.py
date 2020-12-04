@@ -30,6 +30,12 @@ the_chiefy = 6
 blacksmithtimes = 0
 villagetimes = 0
 chieftimes = 0
+health = 10
+armorsmithtimes = 0
+Chainmailhelmet = False
+Chainmailchestplate = False
+Chainmailleggings = False
+Chainmailboots = False
 
 
 def the_adventure():
@@ -37,7 +43,14 @@ def the_adventure():
           " which prevent access in and out of the village. They have let us live in peace and in return we don't try"
           " and disrupt their business. It has stopped the village from expanding and in a few years there will be no"
           " village. If you defeat their boss at the top of the mountain then you will be in control of the monsters"
-          " and free our village. This challenge is not for the weak  ")
+          " and free our village. This challenge is not for the weak and you must make sure you are up for the task.")
+    continue1 = input("Would you like to start the adventure?: ")
+    if continue1 == "Yes":
+        print("sdf")
+    if continue1 == "yes":
+        print("sdf")
+    else:
+        the_village()
 
 
 def the_chief():
@@ -66,17 +79,792 @@ def the_chief():
             the_village()
 
 
+def the_armorsmith():
+    global x1
+    global y2
+    global armorsmithtimes
+    armorsmithtimes = armorsmithtimes + 1
+    if armorsmithtimes == 1:
+        print("Welcome to the armorsmith where you can buy armor to defend yourself from your enemies type armorsmith "
+              "to talk to the armorsmith.")
+    else:
+        print("Welcome back to the armorsmith where you can buy your armor to defend yourself remember you can type"
+              "armorsmith to talk to the armorsmith.")
+    global slot1
+    global slot2
+    global slot3
+    global slot4
+    global slot5
+    global slot6
+    global slot7
+    global slot8
+    global slot9
+    global Villagex
+    global Villagey
+    global bal
+    global Chainmailhelmet
+    global Chainmailleggings
+    global Chainmailchestplate
+    global Chainmailboots
+    main = input("type an action or help > ")
+    if main == "dev":
+        dev_mode()
+    if main == "Move":
+        direction = input("Which direction would you like to move(north, south, east, west): ")
+        if direction == "west":
+            amtmv = input("How much do you want to move: ")
+            x1 = x1 - float(amtmv)
+            the_game()
+        if direction == "east":
+            amtmv = input("How much do you want to move: ")
+            x1 = x1 + float(amtmv)
+            the_game()
+        if direction == "south":
+            amtmv = input("How much do you want to move: ")
+            y2 = y2 - float(amtmv)
+            the_game()
+        if direction == "north":
+            amtmv = input("How much do you want to move: ")
+            y2 = y2 + float(amtmv)
+            the_armorsmith()
+    if main == "move":
+        direction = input("Which direction would you like to move(north, south, east, west): ")
+        if direction == "west":
+            amtmv = input("How much do you want to move: ")
+            x1 = x1 - float(amtmv)
+            the_game()
+        if direction == "east":
+            amtmv = input("How much do you want to move: ")
+            x1 = x1 + float(amtmv)
+            the_game()
+        if direction == "south":
+            amtmv = input("How much do you want to move: ")
+            y2 = y2 - float(amtmv)
+            the_game()
+        if direction == "north":
+            amtmv = input("How much do you want to move: ")
+            y2 = y2 + float(amtmv)
+            the_armorsmith()
+    if main == "Drop":
+        dropslot = input("Slot:")
+        if dropslot == "1":
+            print("You dropped " + slot1)
+            slot1 = "Nothing"
+            the_game()
+        if dropslot == "2":
+            print("You dropped " + slot2)
+            slot2 = "Nothing"
+            the_game()
+        if dropslot == "3":
+            print("You dropped " + slot3)
+            slot3 = "Nothing"
+            the_game()
+        if dropslot == "4":
+            print("You dropped " + slot4)
+            slot4 = "Nothing"
+            the_game()
+        if dropslot == "5":
+            print("You dropped " + slot5)
+            slot5 = "Nothing"
+            the_game()
+        if dropslot == "6":
+            print("You dropped " + slot6)
+            slot6 = "Nothing"
+            the_game()
+        if dropslot == "7":
+            print("You dropped " + slot2)
+            slot2 = "Nothing"
+            the_game()
+        if dropslot == "8":
+            print("You dropped " + slot8)
+            slot8 = "Nothing"
+            the_game()
+        if dropslot == "9":
+            print("You dropped " + slot9)
+            slot9 = "Nothing"
+            the_armorsmith()
+    if main == "drop":
+        dropslot = input("Slot:")
+        if dropslot == "1":
+            print("You dropped " + slot1)
+            slot1 = "Nothing"
+            the_game()
+        if dropslot == "2":
+            print("You dropped " + slot2)
+            slot2 = "Nothing"
+            the_game()
+        if dropslot == "3":
+            print("You dropped " + slot3)
+            slot3 = "Nothing"
+            the_game()
+        if dropslot == "4":
+            print("You dropped " + slot4)
+            slot4 = "Nothing"
+            the_game()
+        if dropslot == "5":
+            print("You dropped " + slot5)
+            slot5 = "Nothing"
+            the_game()
+        if dropslot == "6":
+            print("You dropped " + slot6)
+            slot6 = "Nothing"
+            the_game()
+        if dropslot == "7":
+            print("You dropped " + slot2)
+            slot2 = "Nothing"
+            the_game()
+        if dropslot == "8":
+            print("You dropped " + slot8)
+            slot8 = "Nothing"
+            the_game()
+        if dropslot == "9":
+            print("You dropped " + slot9)
+            slot9 = "Nothing"
+            the_armorsmith()
+    if main == "Inventory":
+        slot = input("Slot:")
+        if slot == "1":
+            print("Slot 1: " + str(slot1))
+            the_game()
+        if slot == "2":
+            print("Slot 2: " + str(slot2))
+            the_game()
+        if slot == "3":
+            print("Slot 3: " + str(slot3))
+            the_game()
+        if slot == "4":
+            print("Slot 4: " + str(slot4))
+            the_game()
+        if slot == "5":
+            print("Slot 1: " + str(slot5))
+            the_game()
+        if slot == "6":
+            print("Slot 6: " + str(slot6))
+            the_game()
+        if slot == "7":
+            print("Slot 7: " + str(slot7))
+            the_game()
+        if slot == "8":
+            print("Slot 8: " + str(slot8))
+            the_game()
+        if slot == "9":
+            print("Slot 9: " + str(slot9))
+            the_armorsmith()
+    if main == "inventory":
+        slot = input("Slot:")
+        if slot == "1":
+            print("Slot 1: " + str(slot1))
+            the_game()
+        if slot == "2":
+            print("Slot 2: " + str(slot2))
+            the_game()
+        if slot == "3":
+            print("Slot 3: " + str(slot3))
+            the_game()
+        if slot == "4":
+            print("Slot 4: " + str(slot4))
+            the_game()
+        if slot == "5":
+            print("Slot 1: " + str(slot5))
+            the_game()
+        if slot == "6":
+            print("Slot 6: " + str(slot6))
+            the_game()
+        if slot == "7":
+            print("Slot 7: " + str(slot7))
+            the_game()
+        if slot == "8":
+            print("Slot 8: " + str(slot8))
+            the_game()
+        if slot == "9":
+            print("Slot 9: " + str(slot9))
+            the_armorsmith()
+    if main == "Map":
+        # x-axis values
+        x = [x1]
+        # y-axis values
+        y = [y2]
+
+        # plotting points as a scatter plot
+        plt.scatter(x, y, label="You", color="green",
+                    marker="*", s=30)
+        plt.scatter(the_blacksmithx, the_blacksmithy, label="The Blacksmith", color="green",
+                    marker=".", s=30)
+        plt.scatter(the_armorsmithx, the_armorsmithy, label="The Armorsmith", color="green",
+                    marker="P", s=30)
+        plt.scatter(the_chiefx, the_chiefy, label="The Chief", color="green",
+                    marker="D", s=30)
+
+        # x-axis label
+        plt.xlabel('x - axis')
+        # frequency label
+        plt.ylabel('y - axis')
+        # plot title
+        plt.title('Map')
+        # showing legend
+        plt.legend()
+
+        # function to show the plot
+        plt.show()
+        the_armorsmith()
+    if main == "map":
+        # x-axis values
+        x = [x1]
+        # y-axis values
+        y = [y2]
+
+        # plotting points as a scatter plot
+        plt.scatter(x, y, label="You", color="green",
+                    marker="*", s=30)
+        plt.scatter(the_blacksmithx, the_blacksmithy, label="The Blacksmith", color="green",
+                    marker=".", s=30)
+        plt.scatter(the_armorsmithx, the_armorsmithy, label="The Armorsmith", color="green",
+                    marker="P", s=30)
+        plt.scatter(the_chiefx, the_chiefy, label="The Chief", color="green",
+                    marker="D", s=30)
+
+        # x-axis label
+        plt.xlabel('x - axis')
+        # frequency label
+        plt.ylabel('y - axis')
+        # plot title
+        plt.title('Map')
+        # showing legend
+        plt.legend()
+
+        # function to show the plot
+        plt.show()
+        the_armorsmith()
+    if main == "Help":
+        print("Type inventory and the slot you want to access slots in your inventory \nType drop and the slot you want"
+              " to drop to get rid of an item you will not be able to get this back\nType move, the direction you"
+              " want to go, and how far you want to go in that direction to move \nType map to see the map \nType help "
+              "to see this menu \nThis is all not case sensitive")
+        the_armorsmith()
+    if main == "help":
+        print("Type inventory and the slot you want to access slots in your inventory \nType drop and the slot you want"
+              " to drop to get rid of an item you will not be able to get this back\nType move, the direction you"
+              " want to go, and how far you want to go in that direction to move \nType map to see the map \nType help "
+              "to see this menu \nThis is all not case sensitive")
+        the_armorsmith()
+    if main == "balance":
+        print("bal")
+        the_armorsmith()
+    if main == "Balance":
+        print("bal")
+        the_armorsmith()
+    if main == "Shop":
+        print("Armor:               Stats:          Cost:\n"
+              "Chainmail Helmet     2 Protection    40 coins\n"
+              "Chainmail Chestplate 2 Protection    40 coins\n"
+              "Chainmail Leggings   2 Protection    40 coins\n"
+              "Chainmail Boots      2 Protection    40 coins")
+        item = input("What would you like to buy or type anything to not buy anything: ")
+        if item == "Chainmail Helmet":
+            if bal == 40:
+                bal = bal-40
+                Chainmailhelmet = True
+                print("You now have a chainmail helmet.")
+                the_armorsmith()
+            else:
+                print("You don't have enough coins")
+                the_armorsmith()
+        if item == "chainmail helmet":
+            if bal == 40:
+                bal = bal-40
+                Chainmailhelmet = True
+                print("You now have a chainmail helmet.")
+                the_armorsmith()
+            else:
+                print("You don't have enough coins")
+                the_armorsmith()
+        if item == "Chainmail Chestplate":
+            if bal == 40:
+                bal = bal - 40
+                Chainmailchestplate = True
+                print("You now have a chainmail chestplate.")
+                the_armorsmith()
+            else:
+                print("You don't have enough coins")
+                the_armorsmith()
+        if item == "chainmail chestplate":
+            if bal == 40:
+                bal = bal - 40
+                Chainmailchestplate = True
+                print("You now have a chainmail chestplate.")
+                the_armorsmith()
+            else:
+                print("You don't have enough coins")
+                the_armorsmith()
+        if item == "Chainmail Leggings":
+            if bal == 40:
+                bal = bal - 40
+                Chainmailleggings = True
+                print("You now have a chainmail leggings.")
+                the_armorsmith()
+            else:
+                print("You don't have enough coins")
+                the_armorsmith()
+        if item == "chainmail leggings":
+            if bal == 40:
+                bal = bal - 40
+                Chainmailleggings = True
+                print("You now have a chainmail leggings.")
+                the_armorsmith()
+            else:
+                print("You don't have enough coins")
+                the_armorsmith()
+        if item == "Chainmail Boots":
+            if bal == 40:
+                bal = bal - 40
+                Chainmailboots = True
+                print("You now have a chainmail boots.")
+                the_armorsmith()
+            else:
+                print("You don't have enough coins")
+                the_armorsmith()
+        if item == "chainmail boots":
+            if bal == 40:
+                bal = bal - 40
+                Chainmailboots = True
+                print("You now have a chainmail boots.")
+                the_armorsmith()
+            else:
+                print("You don't have enough coins")
+                the_armorsmith()
+        else:
+            print("Ok, have a nice day!")
+            the_armorsmith()
+    if main == "shop":
+        print("Weapon:         Stats:                      Cost:\n"
+              "Basic Sword     3 Damage, 2 turns           60 coins\n"
+              "Basic Axe       5 Damage, 3 turns           80 coins\n"
+              "Basic Bow       2 Damage, 1 turn, 3 distance 100 coins\n")
+        item = input("Would like to buy something: ")
+        if item == "Basic Sword":
+            if bal >= 60:
+                slotweapon = input("Which slot would you like that in: ")
+                if slotweapon == "1":
+                    print("Ok, your basic sword is now in slot 1 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot1 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "2":
+                    print("Ok, your basic sword is now in slot 2 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot2 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "3":
+                    print("Ok, your basic sword is now in slot 3 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot3 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "4":
+                    print("Ok, your basic sword is now in slot 4 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot4 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "5":
+                    print("Ok, your basic sword is now in slot 5 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot5 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "6":
+                    print("Ok, your basic sword is now in slot 6 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot6 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "7":
+                    print("Ok, your basic sword is now in slot 7 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot7 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "8":
+                    print("Ok, your basic sword is now in slot 8 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot8 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "9":
+                    print("Ok, your basic sword is now in slot 9 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot9 = "Basic Sword"
+                    the_armorsmith()
+            else:
+                print("You don't have enough coins.")
+                the_armorsmith()
+        if item == "basic sword":
+            if bal >= 60:
+                slotweapon = input("Which slot would you like that in: ")
+                if slotweapon == "1":
+                    print("Ok, your basic sword is now in slot 1 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot1 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "2":
+                    print("Ok, your basic sword is now in slot 2 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot2 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "3":
+                    print("Ok, your basic sword is now in slot 3 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot3 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "4":
+                    print("Ok, your basic sword is now in slot 4 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot4 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "5":
+                    print("Ok, your basic sword is now in slot 5 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot5 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "6":
+                    print("Ok, your basic sword is now in slot 6 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot6 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "7":
+                    print("Ok, your basic sword is now in slot 7 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot7 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "8":
+                    print("Ok, your basic sword is now in slot 8 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot8 = "Basic Sword"
+                    the_armorsmith()
+                if slotweapon == "9":
+                    print("Ok, your basic sword is now in slot 9 and you have 60 less coins!")
+                    bal = bal - 60
+                    slot9 = "Basic Sword"
+                    the_armorsmith()
+            else:
+                print("You don't have enough coins.")
+                the_armorsmith()
+        if item == "Basic Axe":
+            if bal >= 80:
+                slotweapon = input("Which slot would you like that in: ")
+                if slotweapon == "1":
+                    print("Ok, your Basic Axe is now in slot 1 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot1 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "2":
+                    print("Ok, your Basic Axe is now in slot 2 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot2 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "3":
+                    print("Ok, your Basic Axe is now in slot 3 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot3 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "4":
+                    print("Ok, your Basic Axe is now in slot 4 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot4 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "5":
+                    print("Ok, your Basic Axe is now in slot 5 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot5 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "6":
+                    print("Ok, your Basic Axe is now in slot 6 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot6 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "7":
+                    print("Ok, your Basic Axe is now in slot 7 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot7 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "8":
+                    print("Ok, your Basic Axe is now in slot 8 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot8 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "9":
+                    print("Ok, your Basic Axe is now in slot 9 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot9 = "Basic Axe"
+                    the_armorsmith()
+            else:
+                print("You don't have enough coins.")
+                the_armorsmith()
+        if item == "basic axe":
+            if bal >= 80:
+                slotweapon = input("Which slot would you like that in: ")
+                if slotweapon == "1":
+                    print("Ok, your Basic Axe is now in slot 1 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot1 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "2":
+                    print("Ok, your Basic Axe is now in slot 2 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot2 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "3":
+                    print("Ok, your Basic Axe is now in slot 3 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot3 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "4":
+                    print("Ok, your Basic Axe is now in slot 4 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot4 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "5":
+                    print("Ok, your Basic Axe is now in slot 5 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot5 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "6":
+                    print("Ok, your Basic Axe is now in slot 6 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot6 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "7":
+                    print("Ok, your Basic Axe is now in slot 7 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot7 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "8":
+                    print("Ok, your Basic Axe is now in slot 8 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot8 = "Basic Axe"
+                    the_armorsmith()
+                if slotweapon == "9":
+                    print("Ok, your Basic Axe is now in slot 9 and you have 80 less coins!")
+                    bal = bal - 80
+                    slot9 = "Basic Axe"
+                    the_armorsmith()
+            else:
+                print("You don't have enough coins.")
+                the_armorsmith()
+        if item == "Basic Bow":
+            if bal >= 100:
+                slotweapon = input("Which slot would you like that in: ")
+                if slotweapon == "1":
+                    print("Ok, your basic bow is now in slot 1 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot1 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "2":
+                    print("Ok, your basic bow is now in slot 2 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot2 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "3":
+                    print("Ok, your basic bow is now in slot 3 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot3 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "4":
+                    print("Ok, your basic bow is now in slot 4 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot4 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "5":
+                    print("Ok, your basic bow is now in slot 5 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot5 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "6":
+                    print("Ok, your basic bow is now in slot 6 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot6 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "7":
+                    print("Ok, your basic bow is now in slot 7 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot7 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "8":
+                    print("Ok, your basic bow is now in slot 8 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot8 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "9":
+                    print("Ok, your basic bow is now in slot 9 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot9 = "Basic Bow"
+                    the_armorsmith()
+            else:
+                print("You don't have enough coins.")
+                the_armorsmith()
+        if item == "basic bow":
+            if bal >= 100:
+                slotweapon = input("Which slot would you like that in: ")
+                if slotweapon == "1":
+                    print("Ok, your basic bow is now in slot 1 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot1 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "2":
+                    print("Ok, your basic bow is now in slot 2 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot2 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "3":
+                    print("Ok, your basic bow is now in slot 3 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot3 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "4":
+                    print("Ok, your basic bow is now in slot 4 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot4 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "5":
+                    print("Ok, your basic bow is now in slot 5 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot5 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "6":
+                    print("Ok, your basic bow is now in slot 6 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot6 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "7":
+                    print("Ok, your basic bow is now in slot 7 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot7 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "8":
+                    print("Ok, your basic bow is now in slot 8 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot8 = "Basic Bow"
+                    the_armorsmith()
+                if slotweapon == "9":
+                    print("Ok, your basic bow is now in slot 9 and you have 100 less coins!")
+                    bal = bal - 100
+                    slot9 = "Basic Bow"
+                    the_armorsmith()
+            else:
+                print("You don't have enough coins.")
+                the_armorsmith()
+        else:
+            print("Ok, have a nice day!")
+            the_armorsmith()
+    if main == "Armorsmith":
+        if blacksmithtimes == 1:
+            firsttime = "Armorsmith: Welcome to my shop where you can buy armor to protect you against your enemies " \
+                        "if you type shop you can see a listing of what armor you can buy and purchase it if you'd " \
+                        "like. If you'd like to leave move any direction."
+            for char2 in firsttime:
+                sleep(0.05)
+                sys.stdout.write(char2)
+            meaning = input("\nWhat else would you like to learn about?(stats, cost, weapon name): ")
+            if meaning == "stats":
+                print("Armorsmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "cost":
+                print("Armorsmith: The cost of a weapon quite simply determines how many coins it takes to buy a "
+                      "piece of armor.")
+            if meaning == "weapon name":
+                print("Armorsmith: The name of armor determines what material the armor is made out of it is and how "
+                      "high its stats are so basically the cooler the name the better the armor.")
+            if meaning == "Stats":
+                print("Armorsmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "Cost":
+                print("Armorsmith: The cost of a weapon quite simply determines how many coins it takes to buy a "
+                      "piece of armor.")
+            if meaning == "Weapon Name":
+                print("Armorsmith: The name of armor determines what material the armor is made out of it is and how "
+                      "high its stats are so basically the cooler the name the better the armor.")
+            the_armorsmith()
+        else:
+            secondtime = "Armorsmith: Hello traveler welcome back to the armor shop and remember if you type " \
+                         "shop you will see a list of what armor is available to you and purchase them. " \
+                         "If you'd like to leave move any direction."
+            for char1 in secondtime:
+                sleep(0.05)
+                sys.stdout.write(char1)
+            meaning = input("\nWhat else would you like to learn about?(stats, cost, weapon name): ")
+            if meaning == "stats":
+                print("Armorsmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "cost":
+                print("Armorsmith: The cost of a weapon quite simply determines how many coins it takes to buy a "
+                      "piece of armor.")
+            if meaning == "weapon name":
+                print("Armorsmith: The name of armor determines what material the armor is made out of it is and how "
+                      "high its stats are so basically the cooler the name the better the armor.")
+            if meaning == "Stats":
+                print("Armorsmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "Cost":
+                print("Armorsmith: The cost of a weapon quite simply determines how many coins it takes to buy a "
+                      "piece of armor.")
+            if meaning == "Weapon Name":
+                print("Armorsmith: The name of armor determines what material the armor is made out of it is and how "
+                      "high its stats are so basically the cooler the name the better the armor.")
+            the_armorsmith()
+    if main == "armorsmith":
+        if blacksmithtimes == 1:
+            firsttime = "Blacksmith: Hello traveler welcome to shop if you type shop you will see a list of what is " \
+                        "available to you and purchase them with your coins. If you'd like to leave move any " \
+                        "direction."
+            for char2 in firsttime:
+                sleep(0.05)
+                sys.stdout.write(char2)
+            meaning = input("\nWhat else would you like to learn about?(stats, cost, weapon name): ")
+            if meaning == "stats":
+                print("Blacksmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "cost":
+                print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
+            if meaning == "weapon name":
+                print("The name of a weapon determines what kind of weapon it is and how high its stats are so "
+                      "basically the cooler the name the better the weapon.")
+            the_armorsmith()
+        else:
+            secondtime = "Blacksmith: Hello traveler welcome back to the blacksmith shop and remember if you type " \
+                         "shop you will see a list of what is available to you and purchase them with your coins. " \
+                         "If you'd like to leave move any direction."
+            for char1 in secondtime:
+                sleep(0.05)
+                sys.stdout.write(char1)
+            meaning = input("\nWhat else would you like to learn about?(stats, cost, weapon name): ")
+            if meaning == "stats":
+                print("Blacksmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "cost":
+                print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
+            if meaning == "weapon name":
+                print("The name of a weapon determines what kind of weapon it is and how high its stats are so "
+                      "basically the cooler the name the better the weapon.")
+            the_armorsmith()
+
+    else:
+        print("Didn't work try again")
+        the_blacksmith()
+
+
 def dev_mode():
     global bal
     print("Welcome to dev mode where you basically can do anything.")
     devinput = input("What would you like to do: ")
-    if devinput == "Destination":
+    if devinput == "dest":
         dest = input("Where would you like to go: ")
         if dest == "blacksmith":
             the_blacksmith()
         if dest == "village":
             the_village()
-    if devinput == "Money":
+        if dest == "armorsmith":
+            the_armorsmith()
+    if devinput == "money":
         money = input("How much would you like: ")
         bal = float(money) + bal
 
