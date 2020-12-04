@@ -40,6 +40,88 @@ Atvillage = False
 Adventuretimes = 0
 Amtmoved = 0
 Day = 1
+BasicSword = False
+BasicAxe = False
+BasicBow = False
+
+
+def training():
+    global slot1
+    global slot2
+    global slot3
+    global slot4
+    global slot5
+    global slot6
+    global slot7
+    global slot8
+    global slot9
+    global BasicSword
+    global BasicAxe
+    global BasicBow
+    print("Narrator: I didn't want to have to do this, but I stopped time so I can teach you how to fight.")
+    if slot1 != "Nothing":
+        if slot1 == "Basic Sword":
+            BasicSword = True
+        if slot1 == "Basic Axe":
+            BasicAxe = True
+        if slot1 == "Basic Bow":
+            BasicBow = True
+    if slot2 != "Nothing":
+        if slot2 == "Basic Sword":
+            BasicSword = True
+        if slot2 == "Basic Axe":
+            BasicAxe = True
+        if slot2 == "Basic Bow":
+            BasicBow = True
+    if slot3 != "Nothing":
+        if slot3 == "Basic Sword":
+            BasicSword = True
+        if slot3 == "Basic Axe":
+            BasicAxe = True
+        if slot3 == "Basic Bow":
+            BasicBow = True
+    if slot4 != "Nothing":
+        if slot4 == "Basic Sword":
+            BasicSword = True
+        if slot4 == "Basic Axe":
+            BasicAxe = True
+        if slot4 == "Basic Bow":
+            BasicBow = True
+    if slot5 != "Nothing":
+        if slot4 == "Basic Sword":
+            BasicSword = True
+        if slot4 == "Basic Axe":
+            BasicAxe = True
+        if slot5 == "Basic Bow":
+            BasicBow = True
+    if slot6 != "Nothing":
+        if slot6 == "Basic Sword":
+            BasicSword = True
+        if slot6 == "Basic Axe":
+            BasicAxe = True
+        if slot6 == "Basic Bow":
+            BasicBow = True
+    if slot7 != "Nothing":
+        if slot4 == "Basic Sword":
+            BasicSword = True
+        if slot4 == "Basic Axe":
+            BasicAxe = True
+        if slot4 == "Basic Bow":
+            BasicBow = True
+    if slot8 != "Nothing":
+        if slot4 == "Basic Sword":
+            BasicSword = True
+        if slot4 == "Basic Axe":
+            BasicAxe = True
+        if slot4 == "Basic Bow":
+            BasicBow = True
+    if slot9 != "Nothing":
+        if slot4 == "Basic Sword":
+            BasicSword = True
+        if slot4 == "Basic Axe":
+            BasicAxe = True
+        if slot4 == "Basic Bow":
+            BasicBow = True
 
 
 def the_realadventure():
@@ -70,7 +152,14 @@ def the_realadventure():
     if Amtmoved == 3:
         Amtmoved = 0
         Day = Day+1
-
+    if Day == 2:
+        print("Welcome to Day 2, nothing seems to have happened and you watch the sun rise behind the trees. You can't"
+              " see anything, but you feel like something is watching you.")
+    if Day == 3:
+        print("Before you able to go to sleep on the night of day 2 you look at the moon and see it is a full moon that"
+              " night, then you hear a low growling sound and from seemingly out of nowhere a werewolf jumps out at "
+              "you, but before it can reach you it stops in mid-air.")
+        training()
     main = input("type an action or help > ")
     if main == "dev":
         dev_mode()
