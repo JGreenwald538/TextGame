@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 from time import sleep
 
-words = "You wake up in a forest and you see a village in the distance and you need to get there."
+words = "Narrator: You wake up in a forest and you see a village in the distance and you need to get there."
 for char in words:
     # sleep(0.05)
     sys.stdout.write(char)
@@ -36,6 +36,291 @@ Chainmailhelmet = False
 Chainmailchestplate = False
 Chainmailleggings = False
 Chainmailboots = False
+Atvillage = False
+Adventuretimes = 0
+Amtmoved = 0
+Day = 1
+
+
+def the_realadventure():
+    global x1
+    global y2
+    global Adventuretimes
+    Adventuretimes = Adventuretimes+1
+    if Adventuretimes == 1:
+        print("Narrator: Welcome to the adventure you can move 3 spaces a day until you have to sleep. If you check the"
+              " map you will see where you are and how far the final boss is. You will be"
+              " walking through a dark forest so watch out for any obstacles that might come your way. Once you get"
+              " to the final boss I will teach you how to fight. Hopefully I don't have to teach you any earlier. ")
+        y2 = 7
+        x1 = 5
+    global slot1
+    global slot2
+    global slot3
+    global slot4
+    global slot5
+    global slot6
+    global slot7
+    global slot8
+    global slot9
+    global Villagex
+    global Villagey
+    global Amtmoved
+    global Day
+    if Amtmoved == 3:
+        Amtmoved = 0
+        Day = Day+1
+
+    main = input("type an action or help > ")
+    if main == "dev":
+        dev_mode()
+    if main == "Move":
+        direction = input("Which direction would you like to move(north, south, east, west): ")
+        if direction == "west":
+            amtmv = input("How much do you want to move: ")
+            x1 = x1 - float(amtmv)
+            Amtmoved = Amtmoved + int(amtmv)
+            the_realadventure()
+        if direction == "east":
+            amtmv = input("How much do you want to move: ")
+            x1 = x1 + float(amtmv)
+            Amtmoved = Amtmoved + int(amtmv)
+            the_realadventure()
+        if direction == "south":
+            amtmv = input("How much do you want to move: ")
+            y2 = y2 - float(amtmv)
+            Amtmoved = Amtmoved + int(amtmv)
+            the_realadventure()
+        if direction == "north":
+            amtmv = input("How much do you want to move: ")
+            y2 = y2 + float(amtmv)
+            Amtmoved = Amtmoved + int(amtmv)
+            the_realadventure()
+    if main == "move":
+        direction = input("Which direction would you like to move(north, south, east, west): ")
+        if direction == "west":
+            amtmv = input("How much do you want to move: ")
+            x1 = x1 - float(amtmv)
+            Amtmoved = Amtmoved + int(amtmv)
+            the_realadventure()
+        if direction == "east":
+            amtmv = input("How much do you want to move: ")
+            x1 = x1 + float(amtmv)
+            Amtmoved = Amtmoved + int(amtmv)
+            the_realadventure()
+        if direction == "south":
+            amtmv = input("How much do you want to move: ")
+            y2 = y2 - float(amtmv)
+            Amtmoved = Amtmoved + int(amtmv)
+            the_realadventure()
+        if direction == "north":
+            amtmv = input("How much do you want to move: ")
+            y2 = y2 + float(amtmv)
+            Amtmoved = Amtmoved + int(amtmv)
+            the_realadventure()
+    if main == "Drop":
+        dropslot = input("Slot:")
+        if dropslot == "1":
+            print("You dropped " + slot1)
+            slot1 = "Nothing"
+            the_realadventure()
+        if dropslot == "2":
+            print("You dropped " + slot2)
+            slot2 = "Nothing"
+            the_realadventure()
+        if dropslot == "3":
+            print("You dropped " + slot3)
+            slot3 = "Nothing"
+            the_realadventure()
+        if dropslot == "4":
+            print("You dropped " + slot4)
+            slot4 = "Nothing"
+            the_realadventure()
+        if dropslot == "5":
+            print("You dropped " + slot5)
+            slot5 = "Nothing"
+            the_realadventure()
+        if dropslot == "6":
+            print("You dropped " + slot6)
+            slot6 = "Nothing"
+            the_realadventure()
+        if dropslot == "7":
+            print("You dropped " + slot2)
+            slot2 = "Nothing"
+            the_realadventure()
+        if dropslot == "8":
+            print("You dropped " + slot8)
+            slot8 = "Nothing"
+            the_realadventure()
+        if dropslot == "9":
+            print("You dropped " + slot9)
+            slot9 = "Nothing"
+            the_realadventure()
+    if main == "drop":
+        dropslot = input("Slot:")
+        if dropslot == "1":
+            print("You dropped " + slot1)
+            slot1 = "Nothing"
+            the_realadventure()
+        if dropslot == "2":
+            print("You dropped " + slot2)
+            slot2 = "Nothing"
+            the_realadventure()
+        if dropslot == "3":
+            print("You dropped " + slot3)
+            slot3 = "Nothing"
+            the_realadventure()
+        if dropslot == "4":
+            print("You dropped " + slot4)
+            slot4 = "Nothing"
+            the_realadventure()
+        if dropslot == "5":
+            print("You dropped " + slot5)
+            slot5 = "Nothing"
+            the_realadventure()
+        if dropslot == "6":
+            print("You dropped " + slot6)
+            slot6 = "Nothing"
+            the_realadventure()
+        if dropslot == "7":
+            print("You dropped " + slot2)
+            slot2 = "Nothing"
+            the_realadventure()
+        if dropslot == "8":
+            print("You dropped " + slot8)
+            slot8 = "Nothing"
+            the_realadventure()
+        if dropslot == "9":
+            print("You dropped " + slot9)
+            slot9 = "Nothing"
+            the_realadventure()
+    if main == "Inventory":
+        slot = input("Slot:")
+        if slot == "1":
+            print("Slot 1: " + str(slot1))
+            the_realadventure()
+        if slot == "2":
+            print("Slot 2: " + str(slot2))
+            the_realadventure()
+        if slot == "3":
+            print("Slot 3: " + str(slot3))
+            the_realadventure()
+        if slot == "4":
+            print("Slot 4: " + str(slot4))
+            the_realadventure()
+        if slot == "5":
+            print("Slot 1: " + str(slot5))
+            the_realadventure()
+        if slot == "6":
+            print("Slot 6: " + str(slot6))
+            the_realadventure()
+        if slot == "7":
+            print("Slot 7: " + str(slot7))
+            the_realadventure()
+        if slot == "8":
+            print("Slot 8: " + str(slot8))
+            the_realadventure()
+        if slot == "9":
+            print("Slot 9: " + str(slot9))
+            the_realadventure()
+    if main == "inventory":
+        slot = input("Slot:")
+        if slot == "1":
+            print("Slot 1: " + str(slot1))
+            the_realadventure()
+        if slot == "2":
+            print("Slot 2: " + str(slot2))
+            the_realadventure()
+        if slot == "3":
+            print("Slot 3: " + str(slot3))
+            the_realadventure()
+        if slot == "4":
+            print("Slot 4: " + str(slot4))
+            the_realadventure()
+        if slot == "5":
+            print("Slot 1: " + str(slot5))
+            the_realadventure()
+        if slot == "6":
+            print("Slot 6: " + str(slot6))
+            the_realadventure()
+        if slot == "7":
+            print("Slot 7: " + str(slot7))
+            the_realadventure()
+        if slot == "8":
+            print("Slot 8: " + str(slot8))
+            the_realadventure()
+        if slot == "9":
+            print("Slot 9: " + str(slot9))
+            the_realadventure()
+    if main == "Map":
+        # x-axis values
+        x = [x1]
+        # y-axis values
+        y = [y2]
+
+        # plotting points as a scatter plot
+        plt.scatter(x, y, label="You", color="green",
+                    marker="*", s=30)
+        plt.scatter(10, 11, label="The Final Boss", color="green",
+                    marker=".", s=30)
+
+        # x-axis label
+        plt.xlabel('x - axis')
+        # frequency label
+        plt.ylabel('y - axis')
+        # plot title
+        plt.title('Map')
+        # showing legend
+        plt.legend()
+
+        # function to show the plot
+        plt.show()
+        the_realadventure()
+    if main == "map":
+        # x-axis values
+        x = [x1]
+        # y-axis values
+        y = [y2]
+
+        # plotting points as a scatter plot
+        plt.scatter(x, y, label="You", color="green",
+                    marker="*", s=30)
+        plt.scatter(10, 11, label="The Final Boss", color="green",
+                    marker=".", s=30)
+
+        # x-axis label
+        plt.xlabel('x - axis')
+        # frequency label
+        plt.ylabel('y - axis')
+        # plot title
+        plt.title('Map')
+        # showing legend
+        plt.legend()
+
+        # function to show the plot
+        plt.show()
+        the_realadventure()
+    if main == "Help":
+        print("Type inventory and the slot you want to access slots in your inventory \nType drop and the slot you want"
+              " to drop to get rid of an item you will not be able to get this back\nType move, the direction you"
+              " want to go, and how far you want to go in that direction to move \nType map to see the map \nType help "
+              "to see this menu \nThis is all not case sensitive")
+        the_realadventure()
+    if main == "help":
+        print("Type inventory and the slot you want to access slots in your inventory \nType drop and the slot you want"
+              " to drop to get rid of an item you will not be able to get this back\nType move, the direction you"
+              " want to go, and how far you want to go in that direction to move \nType map to see the map \nType help "
+              "to see this menu \nThis is all not case sensitive")
+        the_realadventure()
+    if main == "balance":
+        print("bal")
+        the_realadventure()
+    if main == "Balance":
+        print("bal")
+        the_realadventure()
+    else:
+        print("Didn't work try again")
+        the_realadventure()
 
 
 def the_adventure():
@@ -43,12 +328,14 @@ def the_adventure():
           " which prevent access in and out of the village. They have let us live in peace and in return we don't try"
           " and disrupt their business. It has stopped the village from expanding and in a few years there will be no"
           " village. If you defeat their boss at the top of the mountain then you will be in control of the monsters"
-          " and free our village. This challenge is not for the weak and you must make sure you are up for the task.")
+          " and free our village. While fighting type health to see how much health you have left if this drops to or "
+          "below zero then you have to restart. It is automatically at 10 hearts. This challenge is not for the weak "
+          "and you must make sure you are up for the task.")
     continue1 = input("Would you like to start the adventure?: ")
     if continue1 == "Yes":
-        print("sdf")
+        the_realadventure()
     if continue1 == "yes":
-        print("sdf")
+        the_realadventure()
     else:
         the_village()
 
@@ -82,6 +369,8 @@ def the_chief():
 def the_armorsmith():
     global x1
     global y2
+    if x1 != 4 and y2 != 6:
+        the_village()
     global armorsmithtimes
     armorsmithtimes = armorsmithtimes + 1
     if armorsmithtimes == 1:
@@ -864,6 +1153,8 @@ def dev_mode():
             the_village()
         if dest == "armorsmith":
             the_armorsmith()
+        if dest == "adventure":
+            the_realadventure()
     if devinput == "money":
         money = input("How much would you like: ")
         bal = float(money) + bal
@@ -1785,10 +2076,21 @@ def the_blacksmith():
                       "the damage the more health it takes from your enemy, the higher the turns the more turns it "
                       "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
             if meaning == "cost":
-                print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
+                print("Blacksmith: The cost of a weapon quite simply determines how many coins it takes to buy a weapon"
+                      ".")
             if meaning == "weapon name":
-                print("The name of a weapon determines what kind of weapon it is and how high its stats are so "
-                      "basically the cooler the name the better the weapon.")
+                print("Blacksmith: The name of a weapon determines what kind of weapon it is and how high its stats are"
+                      " so basically the cooler the name the better the weapon.")
+            if meaning == "Stats":
+                print("Blacksmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "Cost":
+                print("Blacksmith: The cost of a weapon quite simply determines how many coins it takes to buy a weapon"
+                      ".")
+            if meaning == "Weapon Name":
+                print("Blacksmith: The name of a weapon determines what kind of weapon it is and how high its stats are"
+                      " so basically the cooler the name the better the weapon.")
             the_blacksmith()
         else:
             secondtime = "Blacksmith: Hello traveler welcome back to the blacksmith shop and remember if you type " \
@@ -1803,10 +2105,21 @@ def the_blacksmith():
                       "the damage the more health it takes from your enemy, the higher the turns the more turns it "
                       "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
             if meaning == "cost":
-                print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
+                print("Blacksmith: The cost of a weapon quite simply determines how many coins it takes to buy a weapon"
+                      ".")
             if meaning == "weapon name":
-                print("The name of a weapon determines what kind of weapon it is and how high its stats are so "
-                      "basically the cooler the name the better the weapon.")
+                print("Blacksmith: The name of a weapon determines what kind of weapon it is and how high its stats are"
+                      " so basically the cooler the name the better the weapon.")
+            if meaning == "Stats":
+                print("Blacksmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "Cost":
+                print("Blacksmith: The cost of a weapon quite simply determines how many coins it takes to buy a weapon"
+                      ".")
+            if meaning == "Weapon Name":
+                print("Blacksmith: The name of a weapon determines what kind of weapon it is and how high its stats are"
+                      " so basically the cooler the name the better the weapon.")
             the_blacksmith()
     if main == "blacksmith":
         if blacksmithtimes == 1:
@@ -1822,10 +2135,21 @@ def the_blacksmith():
                       "the damage the more health it takes from your enemy, the higher the turns the more turns it "
                       "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
             if meaning == "cost":
-                print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
+                print("Blacksmith: The cost of a weapon quite simply determines how many coins it takes to buy a weapon"
+                      ".")
             if meaning == "weapon name":
-                print("The name of a weapon determines what kind of weapon it is and how high its stats are so "
-                      "basically the cooler the name the better the weapon.")
+                print("Blacksmith: The name of a weapon determines what kind of weapon it is and how high its stats are"
+                      " so basically the cooler the name the better the weapon.")
+            if meaning == "Stats":
+                print("Blacksmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "Cost":
+                print("Blacksmith: The cost of a weapon quite simply determines how many coins it takes to buy a weapon"
+                      ".")
+            if meaning == "Weapon Name":
+                print("Blacksmith: The name of a weapon determines what kind of weapon it is and how high its stats are"
+                      " so basically the cooler the name the better the weapon.")
             the_blacksmith()
         else:
             secondtime = "Blacksmith: Hello traveler welcome back to the blacksmith shop and remember if you type " \
@@ -1840,10 +2164,21 @@ def the_blacksmith():
                       "the damage the more health it takes from your enemy, the higher the turns the more turns it "
                       "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
             if meaning == "cost":
-                print("The cost of a weapon quite simply determines how many coins it takes to buy a weapon.")
+                print("Blacksmith: The cost of a weapon quite simply determines how many coins it takes to buy a weapon"
+                      ".")
             if meaning == "weapon name":
-                print("The name of a weapon determines what kind of weapon it is and how high its stats are so "
-                      "basically the cooler the name the better the weapon.")
+                print("Blacksmith: The name of a weapon determines what kind of weapon it is and how high its stats are"
+                      " so basically the cooler the name the better the weapon.")
+            if meaning == "Stats":
+                print("Blacksmith: The stats of a weapon determine it's effectiveness against an enemy so the higher"
+                      "the damage the more health it takes from your enemy, the higher the turns the more turns it "
+                      "takes to use your weapon, and the distance is how far you can use the weapon on an enemy. ")
+            if meaning == "Cost":
+                print("Blacksmith: The cost of a weapon quite simply determines how many coins it takes to buy a weapon"
+                      ".")
+            if meaning == "Weapon Name":
+                print("Blacksmith: The name of a weapon determines what kind of weapon it is and how high its stats are"
+                      " so basically the cooler the name the better the weapon.")
             the_blacksmith()
 
     else:
@@ -1858,6 +2193,8 @@ def the_village():
         the_blacksmith()
     if x1 == 5 and y2 == 6:
         the_chief()
+    if x1 == 4 and y2 == 6:
+        the_armorsmith()
     global villagetimes
     villagetimes = villagetimes + 1
     if villagetimes == 1:
@@ -2127,6 +2464,7 @@ def the_village():
 
 
 def the_game():
+    global Atvillage
     global slot1
     global slot2
     global slot3
@@ -2140,8 +2478,11 @@ def the_game():
     global y2
     global Villagex
     global Villagey
+    if Atvillage:
+        the_village()
     if x1 == 3 and y2 == 4:
         the_village()
+        Atvillage = True
     main = input("\ntype an action or help > ")
     if main == "dev":
         dev_mode()
