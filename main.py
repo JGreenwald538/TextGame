@@ -43,6 +43,7 @@ Day = 1
 BasicSword = False
 BasicAxe = False
 BasicBow = False
+Bothweapons = False
 
 
 def training():
@@ -58,6 +59,7 @@ def training():
     global BasicSword
     global BasicAxe
     global BasicBow
+    global Bothweapons
     print("Narrator: I didn't want to have to do this, but I stopped time so I can teach you how to fight.")
     if slot1 != "Nothing":
         if slot1 == "Basic Sword":
@@ -122,6 +124,83 @@ def training():
             BasicAxe = True
         if slot4 == "Basic Bow":
             BasicBow = True
+    if BasicSword:
+        print("Ah, I see you have a basic sword good weapon for a mighty hero like yourself.")
+    if BasicAxe:
+        if BasicSword:
+            print("Ah, I see you also have a basic axe good for damage though it has a big delay.")
+            Bothweapons = True
+        if not BasicSword:
+            print("Ah, I see you have a basic axe good for damage though it has a big delay.")
+    if BasicBow:
+        if not BasicAxe and not BasicSword:
+            print("Ah, I see you have a basic bow good for distance not the best damage though.")
+        if BasicSword and not Bothweapons:
+            print("Ah, I see you also have a basic bow good for distance not the best damage though.\n"
+                  "Sword and bow is a very good match no one will be able to defend from you.")
+        if BasicAxe and not Bothweapons:
+            print("Ah, I see you also have a basic bow good for distance not the best damage though.\n"
+                  "Axe and bow is not the best duo, but we will make do.")
+        if Bothweapons:
+            print("Ah, I see you also have a basic bow good for distance not the best damage though."
+                  "All three weapons that was an interesting choice we'll see how that goes.")
+    if BasicAxe and not BasicSword and not BasicBow:
+        print("When you're fighting you first move one place in any direction or don't move at all. When you're "
+              "fighting with your axe you have to be right in front of the enemy. And with your axe you have to wait"
+              " 3 turns in between each time you use your axe. In these turns you can either move or attack with"
+              " another weapon. Oh, it appears you don't have any other weapons. Well it might take a while, but"
+              "you'll be able to defeat your enemies. Once you're done with your turn your enemy will go. ")
+    if BasicSword and not BasicAxe and not BasicBow:
+        print("When you're fighting you first move one place in any direction or don't move at all. When you're "
+              "fighting with your sword you have to be right in front of the enemy. And with your sword you have to "
+              "wait 2 turns in between each time you use your sword. In these turns you can either move or attack with"
+              " another weapon. Oh, it appears you don't have any other weapons. Well it might take a while, but"
+              "you'll be able to defeat your enemies. Once you're done with your turn your enemy will go. ")
+    if BasicBow and not BasicAxe and not BasicBow:
+        print("When you're fighting you first move one place in any direction or don't move at all. When you're "
+              "fighting with your bow you can be up to 3 places away. And with your bow you only have to "
+              "wait 1 turn in between each time you use your bow. In this turn you can either move or attack with"
+              " another weapon. Oh, it appears you don't have any other weapons. Well it might take a while, but"
+              "you'll be able to defeat your enemies. Once you're done with your turn your enemy will go. ")
+    if BasicAxe and BasicBow and not BasicSword:
+        print("When you're fighting you first move one place in any direction or don't move at all. When you're "
+              "fighting with your axe you have to be right in front of the enemy. And with your axe you have to "
+              "wait 3 turns in between each time you use your axe. In these turns you can either move or attack "
+              "with another weapon. Once you're done with your turn your enemy will go.")
+        sleep(5)
+        print("When you're fighting with your bow you can be up to 3 places away. And with your bow you only have "
+              "to wait 1 turn in between each time you use your bow. These two will make a very good duo and it "
+              "shouldn't take long to defeat your enemy.")
+    if BasicSword and BasicBow and not BasicAxe:
+        print("When you're fighting you first move one place in any direction or don't move at all. When you're "
+              "fighting with your bow you can be up to 3 spaces away. And with your bow you only have to "
+              "wait 1 turn in between each time you use your bow. In these turns you can either move or attack "
+              "with another weapon. Once you're done with your turn your enemy will go.")
+        sleep(5)
+        print("When you're fighting with your axe you have to be right in front of your enemy. And with your axe you "
+              "have to wait 3 turns in between each time you use your axe. These two will make a very good duo and "
+              "it shouldn't take long to defeat your enemy.")
+    if BasicAxe and BasicSword and not BasicBow:
+        print("When you're fighting you first move one place in any direction or don't move at all. When you're "
+              "fighting with your axe you have to be right in front of the enemy. And with your axe you have to "
+              "wait 3 turns in between each time you use your axe. In these turns you can either move or attack "
+              "with another weapon. Once you're done with your turn your enemy will go.")
+        sleep(5)
+        print("When you're fighting with your sword you have to be right in front of your enemy. And with your sword "
+              "you have to wait 2 turns in between each time you use your sword. These two don't make the best duo, but"
+              "as long as you have good armor you should do fine.")
+    if BasicAxe and BasicBow and BasicSword:
+        print("When you're fighting you first move one place in any direction or don't move at all. When you're "
+              "fighting with your axe you have to be right in front of the enemy. And with your axe you have to "
+              "wait 3 turns in between each time you use your axe. In these turns you can either move or attack "
+              "with another weapon. Once you're done with your turn your enemy will go.")
+        sleep(5)
+        print("When you're fighting with your sword you have to be right in front of your enemy. And with your sword "
+              "you have to wait 2 turns in between each time you use your sword.")
+        sleep(5)
+        print("When you're fighting with your bow you can be up to 3 places away. And with your bow you only have "
+              "to wait 1 turn in between each time you use your bow. These three will make a very good trio and as "
+              "long as you do it right you will get an easy victory.")
 
 
 def the_realadventure():
@@ -132,7 +211,7 @@ def the_realadventure():
     if Adventuretimes == 1:
         print("Narrator: Welcome to the adventure you can move 3 spaces a day until you have to sleep. If you check the"
               " map you will see where you are and how far the final boss is. You will be"
-              " walking through a dark forest so watch out for any obstacles that might come your way. Once you get"
+              " walking through a dark forest so watch out for any obstacles that might come your way. \nOnce you get"
               " to the final boss I will teach you how to fight. Hopefully I don't have to teach you any earlier. ")
         y2 = 7
         x1 = 5
@@ -1231,6 +1310,15 @@ def the_armorsmith():
 
 
 def dev_mode():
+    global slot1
+    global slot2
+    global slot3
+    global slot4
+    global slot5
+    global slot6
+    global slot7
+    global slot8
+    global slot9
     global bal
     print("Welcome to dev mode where you basically can do anything.")
     devinput = input("What would you like to do: ")
@@ -1247,6 +1335,44 @@ def dev_mode():
     if devinput == "money":
         money = input("How much would you like: ")
         bal = float(money) + bal
+    if devinput == "slot":
+        slot23 = input("Slot: ")
+        if slot23 == "1":
+            weapon = input("Weapon: ")
+            slot1 = weapon
+            print("Now, " + weapon + " is in slot 1.")
+        if slot23 == "2":
+            weapon = input("Weapon: ")
+            slot2 = weapon
+            print("Now, " + weapon + " is in slot 2.")
+        if slot23 == "3":
+            weapon = input("Weapon: ")
+            slot3 = weapon
+            print("Now, " + weapon + " is in slot 3.")
+        if slot23 == "4":
+            weapon = input("Weapon: ")
+            slot4 = weapon
+            print("Now, " + weapon + " is in slot 4.")
+        if slot23 == "5":
+            weapon = input("Weapon: ")
+            slot5 = weapon
+            print("Now, " + weapon + " is in slot 5.")
+        if slot23 == "6":
+            weapon = input("Weapon: ")
+            slot6 = weapon
+            print("Now, " + weapon + " is in slot 6.")
+        if slot23 == "7":
+            weapon = input("Weapon: ")
+            slot7 = weapon
+            print("Now, " + weapon + " is in slot 7.")
+        if slot23 == "8":
+            weapon = input("Weapon: ")
+            slot8 = weapon
+            print("Now, " + weapon + " is in slot 8.")
+        if slot23 == "9":
+            weapon = input("Weapon: ")
+            slot9 = weapon
+            print("Now, " + weapon + " is in slot 9.")
 
 
 def the_blacksmith():
