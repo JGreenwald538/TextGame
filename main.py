@@ -1,6 +1,6 @@
 import sys
 import matplotlib.pyplot as plt
-
+import random
 from time import sleep
 
 words = "Narrator: You wake up in a forest and you see a village in the distance and you need to get there."
@@ -44,6 +44,422 @@ BasicSword = False
 BasicAxe = False
 BasicBow = False
 Bothweapons = False
+x123 = 0
+y123 = 0
+firstimefight = False
+Werewolfx = 0
+Werewolfy = 1
+Werewolf_Health = 30
+Werewolf_Ground = False
+Attacks = 0
+Moves = 0
+Werewolfattacks = 0
+Werewolfmoves = 0
+Werewolfgooddistancex = False
+Werewolfgooddistancey = False
+Playeronground = False
+
+
+def thefirstfight():
+    global x123
+    global y123
+    global firstimefight
+    global Werewolfx
+    global Werewolfy
+    global Werewolf_Health
+    global Werewolf_Ground
+    global Attacks
+    global Moves
+    global Werewolfattacks
+    global Werewolfmoves
+    global Werewolfgooddistancex
+    global Werewolfgooddistancey
+    global health
+    global Playeronground
+    firstimefight = firstimefight+1
+    if firstimefight == 1:
+        print("Suddenly the werewolf starts moving again, but you move out of the way so that it doesn't hit you. It is"
+              " your turn. You can type map to see where the werewolf is.")
+    if Playeronground:
+        print("You are on the ground and can't move this turn.")
+        Werewolfmoves = Werewolfmoves + 1
+    move = input("Type help or your action >  ")
+    if move == "move":
+        if not Playeronground:
+            direction = input("Which direction would you like to move(north, south, east, west): ")
+            if direction == "north":
+                y123 = y123+1
+                Moves = Moves+1
+            if direction == "south":
+                y123 = y123-1
+                Moves = Moves + 1
+            if direction == "east":
+                x123 = x123+1
+                Moves = Moves + 1
+            if direction == "west":
+                x123 = x123-1
+                Moves = Moves + 1
+    if move == "Move":
+        if not Playeronground:
+            direction = input("Which direction would you like to move(north, south, east, west): ")
+            if direction == "north":
+                y123 = y123+1
+                Moves = Moves + 1
+            if direction == "south":
+                y123 = y123-1
+                Moves = Moves + 1
+            if direction == "east":
+                x123 = x123+1
+                Moves = Moves + 1
+            if direction == "west":
+                x123 = x123-1
+                Moves = Moves + 1
+    if move == "map":
+        # x-axis values
+        x = [x123]
+        # y-axis values
+        y = [y123]
+
+        # plotting points as a scatter plot
+        plt.scatter(x, y, label="You", color="green",
+                    marker="*", s=30)
+        plt.scatter(Werewolfx, Werewolfy, label="Werewolf", color="green",
+                    marker=".", s=30)
+
+        # x-axis label
+        plt.xlabel('x - axis')
+        # frequency label
+        plt.ylabel('y - axis')
+        # plot title
+        plt.title('Map')
+        # showing legend
+        plt.legend()
+
+        # function to show the plot
+        plt.show()
+        thefirstfight()
+    if move == "Map":
+        # x-axis values
+        x = [x123]
+        # y-axis values
+        y = [y123]
+
+        # plotting points as a scatter plot
+        plt.scatter(x, y, label="You", color="green",
+                    marker="*", s=30)
+        plt.scatter(Werewolfx, Werewolfy, label="Werewolf", color="green",
+                    marker=".", s=30)
+
+        # x-axis label
+        plt.xlabel('x - axis')
+        # frequency label
+        plt.ylabel('y - axis')
+        # plot title
+        plt.title('Map')
+        # showing legend
+        plt.legend()
+
+        # function to show the plot
+        plt.show()
+        thefirstfight()
+    if move == "Attack":
+        weapon123 = input("What weapon would you like to attack with?(Basic Sword, Basic Axe, Basic Bow): ")
+        if weapon123 == "Basic Sword":
+            if BasicSword:
+                if x123-1 == Werewolfx or x123+1 == Werewolfx or y123-1 == Werewolfy or y123+1 == Werewolfy:
+                    ran_num = random.randint(1, 5)
+                    if ran_num == 1:
+                        print("You hit the werewolf in the chest dealing 3 damage.")
+                        Werewolf_Health = Werewolf_Health - 3
+                        Attacks = Attacks + 1
+                    if ran_num == 2:
+                        print("You hit the werewolf in the head dealing 3 damage.")
+                        Werewolf_Health = Werewolf_Health - 3
+                        Attacks = Attacks + 1
+                    if ran_num == 3:
+                        print("You hit the werewolf in the leg dealing 3 damage and making him fall to the ground.")
+                        Werewolf_Health = Werewolf_Health - 3
+                        Werewolf_Ground = True
+                        Attacks = Attacks + 1
+                    if ran_num == 4:
+                        print("You hit the werewolf in the chest dealing 3 damage.")
+                        Werewolf_Health = Werewolf_Health - 3
+                        Attacks = Attacks + 1
+                    if ran_num == 5:
+                        print("You hit the werewolf in the head dealing 3 damage.")
+                        Werewolf_Health = Werewolf_Health - 3
+                        Attacks = Attacks + 1
+                else:
+                    print("You aren't close enough to attack to the werewolf with a basic sword.")
+                    if Moves > Attacks:
+                        Attacks = Attacks + 1
+                    else:
+                        thefirstfight()
+            else:
+                print("You don't have a Basic Sword.")
+                thefirstfight()
+        if weapon123 == "Basic Axe":
+            if BasicAxe:
+                if x123-1 == Werewolfx or x123+1 == Werewolfx or y123-1 == Werewolfy or y123+1 == Werewolfy:
+                    ran_num = random.randint(1, 5)
+                    if ran_num == 1:
+                        print("You hit the werewolf in the chest dealing 5 damage.")
+                        Werewolf_Health = Werewolf_Health - 5
+                        Attacks = Attacks + 1
+                    if ran_num == 2:
+                        print("You hit the werewolf in the head dealing 5 damage.")
+                        Werewolf_Health = Werewolf_Health - 5
+                        Attacks = Attacks + 1
+                    if ran_num == 3:
+                        print("You hit the werewolf in the leg dealing 5 damage and making him fall to the ground.")
+                        Werewolf_Health = Werewolf_Health - 5
+                        Werewolf_Ground = True
+                        Attacks = Attacks + 1
+                    if ran_num == 4:
+                        print("You hit the werewolf in the chest dealing 5 damage.")
+                        Werewolf_Health = Werewolf_Health - 5
+                        Attacks = Attacks + 1
+                    if ran_num == 5:
+                        print("You hit the werewolf in the head dealing 5 damage.")
+                        Werewolf_Health = Werewolf_Health - 5
+                        Attacks = Attacks + 1
+                else:
+                    print("You aren't close enough to attack to the werewolf with a basic axe.")
+                    if Moves > Attacks:
+                        Attacks = Attacks + 1
+                    else:
+                        thefirstfight()
+            else:
+                print("You don't have a Basic Axe.")
+                thefirstfight()
+        if weapon123 == "Basic Bow":
+            if BasicBow:
+                if x123-1 == Werewolfx or x123+1 == Werewolfx or y123-1 == Werewolfy or y123+1 == Werewolfy or 123-2 \
+                        == Werewolfx or x123+2 == Werewolfx or y123-2 == Werewolfy or y123+2 == Werewolfy or x123-3 \
+                        == Werewolfx or x123+3 == Werewolfx or y123-3 == Werewolfy or y123+3 == Werewolfy:
+                    ran_num = random.randint(1, 5)
+                    if ran_num == 1:
+                        print("You hit the werewolf in the chest dealing 2 damage.")
+                        Werewolf_Health = Werewolf_Health - 2
+                        Attacks = Attacks + 1
+                    if ran_num == 2:
+                        print("You hit the werewolf in the head dealing 2 damage.")
+                        Werewolf_Health = Werewolf_Health - 2
+                        Attacks = Attacks + 1
+                    if ran_num == 3:
+                        print("You hit the werewolf in the leg dealing 2 damage and making him fall to the ground.")
+                        Werewolf_Health = Werewolf_Health - 2
+                        Werewolf_Ground = True
+                        Attacks = Attacks + 1
+                    if ran_num == 4:
+                        print("You hit the werewolf in the chest dealing 2 damage.")
+                        Werewolf_Health = Werewolf_Health - 2
+                        Attacks = Attacks + 1
+                    if ran_num == 5:
+                        print("You hit the werewolf in the head dealing 2 damage.")
+                        Werewolf_Health = Werewolf_Health - 2
+                        Attacks = Attacks + 1
+                else:
+                    print("You aren't close enough to attack to the werewolf with a basic sword.")
+                    if Moves > Attacks:
+                        Attacks = Attacks + 1
+                    else:
+                        thefirstfight()
+            else:
+                print("You don't have a Basic Sword.")
+                thefirstfight()
+    if move == "attack":
+        weapon123 = input("What weapon would you like to attack with?(Basic Sword, Basic Axe, Basic Bow): ")
+        if weapon123 == "Basic Sword":
+            if BasicSword:
+                if x123-1 == Werewolfx or x123+1 == Werewolfx or y123-1 == Werewolfy or y123+1 == Werewolfy:
+                    ran_num = random.randint(1, 5)
+                    if ran_num == 1:
+                        print("You hit the werewolf in the chest dealing 3 damage.")
+                        Werewolf_Health = Werewolf_Health - 3
+                        Attacks = Attacks + 1
+                    if ran_num == 2:
+                        print("You hit the werewolf in the head dealing 3 damage.")
+                        Werewolf_Health = Werewolf_Health - 3
+                        Attacks = Attacks + 1
+                    if ran_num == 3:
+                        print("You hit the werewolf in the leg dealing 3 damage and making him fall to the ground.")
+                        Werewolf_Health = Werewolf_Health - 3
+                        Werewolf_Ground = True
+                        Attacks = Attacks + 1
+                    if ran_num == 4:
+                        print("You hit the werewolf in the chest dealing 3 damage.")
+                        Werewolf_Health = Werewolf_Health - 3
+                        Attacks = Attacks + 1
+                    if ran_num == 5:
+                        print("You hit the werewolf in the head dealing 3 damage.")
+                        Werewolf_Health = Werewolf_Health - 3
+                        Attacks = Attacks + 1
+                else:
+                    print("You aren't close enough to attack to the werewolf with a basic sword.")
+                    if Moves > Attacks:
+                        Attacks = Attacks + 1
+                    else:
+                        thefirstfight()
+            else:
+                print("You don't have a Basic Sword.")
+                thefirstfight()
+        if weapon123 == "Basic Axe":
+            if BasicAxe:
+                if x123-1 == Werewolfx or x123+1 == Werewolfx or y123-1 == Werewolfy or y123+1 == Werewolfy:
+                    ran_num = random.randint(1, 5)
+                    if ran_num == 1:
+                        print("You hit the werewolf in the chest dealing 5 damage.")
+                        Werewolf_Health = Werewolf_Health - 5
+                        Attacks = Attacks + 1
+                    if ran_num == 2:
+                        print("You hit the werewolf in the head dealing 5 damage.")
+                        Werewolf_Health = Werewolf_Health - 5
+                        Attacks = Attacks + 1
+                    if ran_num == 3:
+                        print("You hit the werewolf in the leg dealing 5 damage and making him fall to the ground.")
+                        Werewolf_Health = Werewolf_Health - 5
+                        Werewolf_Ground = True
+                        Attacks = Attacks + 1
+                    if ran_num == 4:
+                        print("You hit the werewolf in the chest dealing 5 damage.")
+                        Werewolf_Health = Werewolf_Health - 5
+                        Attacks = Attacks + 1
+                    if ran_num == 5:
+                        print("You hit the werewolf in the head dealing 5 damage.")
+                        Werewolf_Health = Werewolf_Health - 5
+                        Attacks = Attacks + 1
+                else:
+                    print("You aren't close enough to attack to the werewolf with a basic axe.")
+                    if Moves > Attacks:
+                        Attacks = Attacks + 1
+                    else:
+                        thefirstfight()
+            else:
+                print("You don't have a Basic Axe.")
+                thefirstfight()
+        if weapon123 == "Basic Bow":
+            if BasicBow:
+                if x123-1 == Werewolfx or x123+1 == Werewolfx or y123-1 == Werewolfy or y123+1 == Werewolfy or 123-2 \
+                        == Werewolfx or x123+2 == Werewolfx or y123-2 == Werewolfy or y123+2 == Werewolfy or x123-3 \
+                        == Werewolfx or x123+3 == Werewolfx or y123-3 == Werewolfy or y123+3 == Werewolfy:
+                    ran_num = random.randint(1, 5)
+                    if ran_num == 1:
+                        print("You hit the werewolf in the chest dealing 2 damage.")
+                        Werewolf_Health = Werewolf_Health - 2
+                        Attacks = Attacks + 1
+                    if ran_num == 2:
+                        print("You hit the werewolf in the head dealing 2 damage.")
+                        Werewolf_Health = Werewolf_Health - 2
+                        Attacks = Attacks + 1
+                    if ran_num == 3:
+                        print("You hit the werewolf in the leg dealing 2 damage and making him fall to the ground.")
+                        Werewolf_Health = Werewolf_Health - 2
+                        Werewolf_Ground = True
+                        Attacks = Attacks + 1
+                    if ran_num == 4:
+                        print("You hit the werewolf in the chest dealing 2 damage.")
+                        Werewolf_Health = Werewolf_Health - 2
+                        Attacks = Attacks + 1
+                    if ran_num == 5:
+                        print("You hit the werewolf in the head dealing 2 damage.")
+                        Werewolf_Health = Werewolf_Health - 2
+                        Attacks = Attacks + 1
+                else:
+                    print("You aren't close enough to attack to the werewolf with a basic sword.")
+                    if Moves > Attacks:
+                        Attacks = Attacks + 1
+                    else:
+                        thefirstfight()
+            else:
+                print("You don't have a Basic Sword.")
+                thefirstfight()
+    if Attacks > Werewolfattacks and Moves > Werewolfmoves and not Werewolf_Ground:
+        werewolfdistancex = Werewolfx - x123
+        werewolfdistancey = Werewolfy - y123
+        if werewolfdistancey > 0:
+            Werewolfy = Werewolfy - 1
+            print("The Werewolf approaches you.")
+            thefirstfight()
+        if werewolfdistancey < 0:
+            Werewolfy = Werewolfy + 1
+            print("The Werewolf approaches you.")
+            thefirstfight()
+        if werewolfdistancex > 0:
+            Werewolfx = Werewolfx + 1
+            print("The Werewolf approaches you.")
+            thefirstfight()
+        if werewolfdistancex < 0:
+            Werewolfx = Werewolfx - 1
+            print("The Werewolf approaches you.")
+            thefirstfight()
+    if Attacks > Werewolfattacks and Moves > Werewolfmoves:
+        werewolfdistancex = Werewolfx - x123
+        werewolfdistancey = Werewolfy - y123
+        if werewolfdistancex == 1 or werewolfdistancex == 0 or werewolfdistancex == -1:
+            Werewolfgooddistancex = True
+        if werewolfdistancey == 1 or werewolfdistancey == 0 or werewolfdistancey == -1:
+            Werewolfgooddistancey = True
+        if Werewolfgooddistancey and Werewolfgooddistancex:
+            ran_num = random.randint(1, 4)
+            if ran_num == 1:
+                if Chainmailhelmet:
+                    print("The werewolf hit your head, but your helmet blocked some of the damage and did only "
+                          "1 heart.")
+                    health = health - 1
+                    thefirstfight()
+                else:
+                    print("The werewolf hit your head your head and did 2 hearts of damage.")
+                    health = health - 2
+                    thefirstfight()
+            if ran_num == 2:
+                if Chainmailchestplate:
+                    print("The werewolf hit your chest, but your chestplate blocked some of the damage and did only "
+                          "1 heart.")
+                    health = health - 1
+                    thefirstfight()
+                else:
+                    print("The werewolf hit your head your chest and did 2 hearts of damage.")
+                    health = health - 2
+                    thefirstfight()
+            if ran_num == 3:
+                if Chainmailleggings:
+                    print("The werewolf hit your head, but your leggings blocked some of the damage and did only "
+                          "1 heart.")
+                    health = health - 1
+                    ran_num1 = random.randint(1, 2)
+                    if ran_num1 == 2:
+                        print("Unfortunately, the werewolf pierced through your armor and you fell on to the ground."
+                              "You will not be able to move next turn.")
+                        Playeronground = True
+                        thefirstfight()
+                    if ran_num1:
+                        thefirstfight()
+                else:
+                    print("The werewolf hit your legs and did 2 hearts of damage. ")
+                    health = health - 2
+                    thefirstfight()
+            if ran_num == 4:
+                if Chainmailboots:
+                    print("The werewolf hit your head, but your boots blocked some of the damage and did only "
+                          "1 heart.")
+                    health = health - 1
+                    ran_num1 = random.randint(1, 2)
+                    if ran_num1 == 2:
+                        print("Unfortunately, the werewolf pierced through your armor and you fell on to the ground."
+                              "You will not be able to move next turn.")
+                        Playeronground = True
+                        thefirstfight()
+                    if ran_num1 == 1:
+                        thefirstfight()
+
+                else:
+                    print("The werewolf hit your feet your head and did 2 hearts of damage. ")
+                    health = health - 2
+                    thefirstfight()
+        else:
+            print("The werewolf is not close enough to hurt you.")
+            thefirstfight()
 
 
 def training():
@@ -60,6 +476,10 @@ def training():
     global BasicAxe
     global BasicBow
     global Bothweapons
+    global Chainmailboots
+    global Chainmailchestplate
+    global Chainmailhelmet
+    global Chainmailleggings
     print("Narrator: I didn't want to have to do this, but I stopped time so I can teach you how to fight.")
     if slot1 != "Nothing":
         if slot1 == "Basic Sword":
@@ -124,26 +544,36 @@ def training():
             BasicAxe = True
         if slot4 == "Basic Bow":
             BasicBow = True
+    sleep(5)
     if BasicSword:
-        print("Ah, I see you have a basic sword good weapon for a mighty hero like yourself.")
+        print("Ah, I see you have a basic sword good weapon for a mighty hero like yourself. To use the sword type "
+              "slash in battle and as long as you are the right distance away.")
     if BasicAxe:
         if BasicSword:
-            print("Ah, I see you also have a basic axe good for damage though it has a big delay.")
+            print("Ah, I see you also have a basic axe good for damage though it has a big delay. To use the axe just "
+                  "type chop in battle and you will hit your enemy as long as your the right distance away.")
             Bothweapons = True
         if not BasicSword:
-            print("Ah, I see you have a basic axe good for damage though it has a big delay.")
+            print("Ah, I see you have a basic axe good for damage though it has a big delay. To use the axe just type"
+                  "chop and you will hit your enemy as long as your the right distance away.")
     if BasicBow:
         if not BasicAxe and not BasicSword:
-            print("Ah, I see you have a basic bow good for distance not the best damage though.")
+            print("Ah, I see you have a basic bow good for distance not the best damage though. To shoot the bow "
+                  "just type shoot when in battle and as long as you're the right distance you will hit.")
         if BasicSword and not Bothweapons:
-            print("Ah, I see you also have a basic bow good for distance not the best damage though.\n"
+            print("Ah, I see you also have a basic bow good for distance not the best damage though. To shoot the bow "
+                  "just type shoot when in battle and as long as you're the right distance you will hit.\n"
                   "Sword and bow is a very good match no one will be able to defend from you.")
         if BasicAxe and not Bothweapons:
-            print("Ah, I see you also have a basic bow good for distance not the best damage though.\n"
+            print("Ah, I see you also have a basic bow good for distance not the best damage though. To shoot the bow "
+                  "just type shoot when in battle and as long as you're the right distance you will hit.\n"
                   "Axe and bow is not the best duo, but we will make do.")
         if Bothweapons:
-            print("Ah, I see you also have a basic bow good for distance not the best damage though."
-                  "All three weapons that was an interesting choice we'll see how that goes.")
+            print("Ah, I see you also have a basic bow good for distance not the best damage though.To shoot the bow "
+                  "just type shoot when in battle and as long as you're the right distance you will hit.\n"
+                  "All three weapons that was an interesting choice we'll see how that goes. To shoot the bow just"
+                  "type shoot when in battle.")
+    sleep(5)
     if BasicAxe and not BasicSword and not BasicBow:
         print("When you're fighting you first move one place in any direction or don't move at all. When you're "
               "fighting with your axe you have to be right in front of the enemy. And with your axe you have to wait"
@@ -201,6 +631,17 @@ def training():
         print("When you're fighting with your bow you can be up to 3 places away. And with your bow you only have "
               "to wait 1 turn in between each time you use your bow. These three will make a very good trio and as "
               "long as you do it right you will get an easy victory.")
+
+    sleep(10)
+    print("When an enemy attacks you it randomly hits you in your head, legs, chest, or feet. If you have armor"
+          " on the area that it hits then you will take one heart less damage from the hit. They also move before"
+          "they hit and try to move closer to you because they have to be in front of you to hit you. But, when "
+          "you are fighting enemies with a bow there is a chance your enemy could take an arrow out of themself"
+          " and throw it at you. ")
+    sleep(5)
+    print("Narrator: To view your health type health and with that I think you are ready to fight you can do this "
+          "I believe in you.")
+    thefirstfight()
 
 
 def the_realadventure():
@@ -1648,9 +2089,9 @@ def the_blacksmith():
         print("bal")
         the_blacksmith()
     if main == "Shop":
-        print("Weapon:         Stats:                      Cost:\n"
-              "Basic Sword     3 Damage, 2 turns           60 coins\n"
-              "Basic Axe       5 Damage, 3 turns           80 coins\n"
+        print("Weapon:         Stats:                       Cost:\n"
+              "Basic Sword     3 Damage, 2 turns            60 coins\n"
+              "Basic Axe       5 Damage, 3 turns            80 coins\n"
               "Basic Bow       2 Damage, 1 turn, 3 distance 100 coins\n")
         item = input("What would you like to buy or type anything to not buy anything: ")
         if item == "Basic Sword":
