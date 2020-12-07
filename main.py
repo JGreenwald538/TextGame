@@ -49,7 +49,7 @@ y123 = 0
 firstimefight = False
 Werewolfx = 0
 Werewolfy = 1
-Werewolf_Health = 30
+Werewolf_Health = 20
 Werewolf_Ground = False
 Attacks = 0
 Moves = 0
@@ -58,6 +58,7 @@ Werewolfmoves = 0
 Werewolfgooddistancex = False
 Werewolfgooddistancey = False
 Playeronground = False
+Completefirstfight = False
 
 
 def thefirstfight():
@@ -76,6 +77,7 @@ def thefirstfight():
     global Werewolfgooddistancey
     global health
     global Playeronground
+    global Completefirstfight
     firstimefight = firstimefight+1
     if firstimefight == 1:
         print("Suddenly the werewolf starts moving again, but you move out of the way so that it doesn't hit you. It is"
@@ -374,6 +376,18 @@ def thefirstfight():
             else:
                 print("You don't have a Basic Sword.")
                 thefirstfight()
+    if move == "skip move":
+        skipmove = input("Would you like to skip your move?: ")
+        if skipmove == "Yes":
+            Moves = Moves + 1
+        if skipmove == "yes":
+            Moves = Moves + 1
+    if move == "Skip Move":
+        skipmove = input("Would you like to skip your move?: ")
+        if skipmove == "Yes":
+            Moves = Moves + 1
+        if skipmove == "yes":
+            Moves = Moves + 1
     if Attacks > Werewolfattacks and Moves > Werewolfmoves and not Werewolf_Ground:
         werewolfdistancex = Werewolfx - x123
         werewolfdistancey = Werewolfy - y123
@@ -460,6 +474,31 @@ def thefirstfight():
         else:
             print("The werewolf is not close enough to hurt you.")
             thefirstfight()
+    if move == "health":
+        print("You have " + health + "hearts.")
+    if move == "Health":
+        print("You have " + health + "hearts.")
+    if move == "help":
+        print("If you type health then you can see how many hearts you have left.\n"
+              "If you type move then you can move in one direction once if you are not on the ground.\n"
+              "If you type map you can see where you are and where the werewolf is.\n"
+              "If you type attack you can attack the werewolf, but only after you moved or skipped your move.\n"
+              "If you type skip move you can skip your move.\n"
+              "This all not case sensitive.")
+    if move == "Help":
+        print("If you type health then you can see how many hearts you have left.\n"
+              "If you type move then you can move in one direction once if you are not on the ground.\n"
+              "If you type map you can see where you are and where the werewolf is.\n"
+              "If you type attack you can attack the werewolf, but only after you moved or skipped your move.\n"
+              "If you type skip move you can skip your move.\n"
+              "This all not case sensitive.")
+    if Werewolf_Health == 0:
+        print("Narrator: Congratulations, you defeated the werewolf now time to get back to the adventure.")
+        Completefirstfight = True
+        the_realadventure()
+    else:
+        print("That didn't work try again.")
+    thefirstfight()
 
 
 def training():
@@ -545,21 +584,17 @@ def training():
         if slot4 == "Basic Bow":
             BasicBow = True
     sleep(5)
-    if BasicSword:
-        print("Ah, I see you have a basic sword good weapon for a mighty hero like yourself. To use the sword type "
-              "slash in battle and as long as you are the right distance away.")
+    if BasicSword and not BasicAxe and not BasicBow:
+        print("Ah, I see you have a basic sword good weapon for a mighty hero like yourself.")
     if BasicAxe:
         if BasicSword:
-            print("Ah, I see you also have a basic axe good for damage though it has a big delay. To use the axe just "
-                  "type chop in battle and you will hit your enemy as long as your the right distance away.")
+            print("Ah, I see you also have a basic axe good for damage though it has a big delay.")
             Bothweapons = True
         if not BasicSword:
-            print("Ah, I see you have a basic axe good for damage though it has a big delay. To use the axe just type"
-                  "chop and you will hit your enemy as long as your the right distance away.")
+            print("Ah, I see you have a basic axe good for damage though it has a big delay.")
     if BasicBow:
         if not BasicAxe and not BasicSword:
-            print("Ah, I see you have a basic bow good for distance not the best damage though. To shoot the bow "
-                  "just type shoot when in battle and as long as you're the right distance you will hit.")
+            print("Ah, I see you have a basic bow good for distance not the best damage though.")
         if BasicSword and not Bothweapons:
             print("Ah, I see you also have a basic bow good for distance not the best damage though. To shoot the bow "
                   "just type shoot when in battle and as long as you're the right distance you will hit.\n"
@@ -571,8 +606,7 @@ def training():
         if Bothweapons:
             print("Ah, I see you also have a basic bow good for distance not the best damage though.To shoot the bow "
                   "just type shoot when in battle and as long as you're the right distance you will hit.\n"
-                  "All three weapons that was an interesting choice we'll see how that goes. To shoot the bow just"
-                  "type shoot when in battle.")
+                  "All three weapons that was an interesting choice we'll see how that goes.")
     sleep(5)
     if BasicAxe and not BasicSword and not BasicBow:
         print("When you're fighting you first move one place in any direction or don't move at all. When you're "
@@ -633,6 +667,7 @@ def training():
               "long as you do it right you will get an easy victory.")
 
     sleep(10)
+    print("To use any of these weapons just type attack.")
     print("When an enemy attacks you it randomly hits you in your head, legs, chest, or feet. If you have armor"
           " on the area that it hits then you will take one heart less damage from the hit. They also move before"
           "they hit and try to move closer to you because they have to be in front of you to hit you. But, when "
@@ -640,7 +675,8 @@ def training():
           " and throw it at you. ")
     sleep(5)
     print("Narrator: To view your health type health and with that I think you are ready to fight you can do this "
-          "I believe in you.")
+          "I believe in you. If you need this information again just type help.")
+    sleep(3)
     thefirstfight()
 
 
@@ -669,17 +705,26 @@ def the_realadventure():
     global Villagey
     global Amtmoved
     global Day
+    global Completefirstfight
+    if y2 == 11 and x1 == 10:
+        print("You reached the final boss to see that it is inside of a cave. You walk inside to see a group of "
+              "Manotaurs( ")
     if Amtmoved == 3:
         Amtmoved = 0
         Day = Day+1
     if Day == 2:
         print("Welcome to Day 2, nothing seems to have happened and you watch the sun rise behind the trees. You can't"
               " see anything, but you feel like something is watching you.")
-    if Day == 3:
+    if Day == 3 and not Completefirstfight:
         print("Before you able to go to sleep on the night of day 2 you look at the moon and see it is a full moon that"
               " night, then you hear a low growling sound and from seemingly out of nowhere a werewolf jumps out at "
               "you, but before it can reach you it stops in mid-air.")
         training()
+    if Day == 3 and Completefirstfight:
+        print("Welcome back to your adventure before you can sleep you see the sun rising. You are tired, but need to "
+              "keep moving to defeat the final boss.")
+    if Day > 4:
+        print("You wake up on Day " + Day + "to see the sun rise. You have to keep moving. ")
     main = input("type an action or help > ")
     if main == "dev":
         dev_mode()
