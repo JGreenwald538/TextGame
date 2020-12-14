@@ -2741,10 +2741,10 @@ def the_armorsmith():
               "items\nType armorsmith to talk to the armorsmith\nThis is all not case sensitive")
         the_armorsmith()
     if main == "balance":
-        print(bal)
+        print("You have " + str(bal) + "points.")
         the_armorsmith()
     if main == "Balance":
-        print(bal)
+        print("You have " + str(bal) + "points.")
         the_armorsmith()
     if main == "Shop":
         print("Armor:               Stats:          Cost:\n"
@@ -3453,10 +3453,10 @@ def the_blacksmith():
               "items\nType blacksmith to talk to the blacksmith\nThis is all not case sensitive")
         the_blacksmith()
     if main == "balance":
-        print(bal)
+        print("You have " + str(bal) + "points.")
         the_blacksmith()
     if main == "Balance":
-        print(bal)
+        print("You have " + str(bal) + "points.")
         the_blacksmith()
     if main == "Shop":
         print("Weapon:         Stats:                       Cost:\n"
@@ -4893,16 +4893,19 @@ def the_game():
         print("Type inventory and the slot you want to access slots in your inventory \nType drop and the slot you want"
               " to drop to get rid of an item you will not be able to get this back\nType move, the direction you"
               " want to go, and how far you want to go in that direction to move \nType map to see the map \nType help "
-              "to see this menu \nThis is all not case sensitive")
+              "to see this menu\nType balance to see how many points you have \nThis is all not case sensitive")
         the_game()
     if main == "help":
         print("Type inventory and the slot you want to access slots in your inventory \nType drop and the slot you want"
               " to drop to get rid of an item you will not be able to get this back\nType move, the direction you"
               " want to go, and how far you want to go in that direction to move \nType map to see the map \nType help "
-              "to see this menu \nThis is all not case sensitive")
+              "to see this menu\nType balance to see how many points you have \nThis is all not case sensitive")
         the_game()
-    if main == "bal":
-        print(bal)
+    if main == "balance":
+        print("You have " + str(bal) + "points.")
+        the_game()
+    if main == "Balance":
+        print("You have " + str(bal) + "points.")
         the_game()
     else:
         print("Didn't work try again")
